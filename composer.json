@@ -1,0 +1,30 @@
+{
+    "name": "simple-bus/command-event-bridge",
+    "type": "library",
+    "description": " Bridge for combining command buses and event buses in one project ",
+    "keywords": ["command", "command bus", "event", "event bus"],
+    "homepage": "http://github.com/SimpleBus/CommandEventBridge",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthias Noback",
+            "email": "matthiasnoback@gmail.com",
+            "homepage": "http://php-and-symfony.matthiasnoback.nl"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "beberlei/assert": "~2.0",
+        "simple-bus/command-bus": "~1.0",
+        "simple-bus/event-bus": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7"
+    },
+    "autoload": {
+        "psr-4" : { "SimpleBus\\CommandEventBridge\\" : "src" }
+    },
+    "autoload-dev": {
+        "psr-4" : { "SimpleBus\\CommandEventBridge\\Tests\\" : "tests" }
+    }
+}
