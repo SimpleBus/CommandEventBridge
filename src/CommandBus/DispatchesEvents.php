@@ -2,16 +2,13 @@
 
 namespace SimpleBus\CommandEventBridge\CommandBus;
 
+use SimpleBus\Command\Bus\Middleware\CommandBusMiddleware;
 use SimpleBus\Command\Command;
-use SimpleBus\Command\Bus\CommandBus;
-use SimpleBus\Command\Bus\RemembersNext;
 use SimpleBus\Event\Bus\EventBus;
 use SimpleBus\Event\Provider\ProvidesEvents;
 
-class DispatchesEvents implements CommandBus
+class DispatchesEvents implements CommandBusMiddleware
 {
-    use RemembersNext;
-
     private $eventProvider;
     private $eventBus;
 
@@ -21,9 +18,9 @@ class DispatchesEvents implements CommandBus
         $this->eventProvider = $eventProvider;
     }
 
-    public function handle(Command $command)
+    public function handle(Command $command, callable $next)
     {
-        $this->next($command);
+        $next($command);
 
         foreach ($this->eventProvider->releaseEvents() as $event) {
             $this->eventBus->handle($event);
