@@ -7,7 +7,7 @@ use SimpleBus\Command\Command;
 use SimpleBus\Event\Bus\EventBus;
 use SimpleBus\Event\Provider\ProvidesEvents;
 
-class DispatchesEvents implements CommandBusMiddleware
+class DispatchesEventsMiddleware implements CommandBusMiddleware
 {
     private $eventProvider;
     private $eventBus;
@@ -20,10 +20,10 @@ class DispatchesEvents implements CommandBusMiddleware
 
     public function handle(Command $command, callable $next)
     {
-        $next($command);
-
         foreach ($this->eventProvider->releaseEvents() as $event) {
             $this->eventBus->handle($event);
         }
+
+        $next($command);
     }
 }

@@ -36,7 +36,7 @@ Using Composer:
 
     ```php
     $eventProvider = new EventProvider();
-    $eventDispatchingCommandBus = new DispatchesEvents($eventProvider);
+    $eventDispatchingCommandBus = new DispatchesEventsMiddleware($eventProvider);
 
     $commandBus->handle(...);
 
