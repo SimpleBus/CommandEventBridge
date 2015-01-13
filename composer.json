@@ -1,8 +1,7 @@
 {
     "name": "simple-bus/command-event-bridge",
     "type": "library",
-    "description": " Bridge for combining command buses and event buses in one project ",
-    "keywords": ["command", "command bus", "event", "event bus"],
+    "description": "Deprecated package",
     "homepage": "http://github.com/SimpleBus/CommandEventBridge",
     "license": "MIT",
     "authors": [
@@ -12,21 +11,6 @@
             "homepage": "http://php-and-symfony.matthiasnoback.nl"
         }
     ],
-    "require": {
-        "php": ">=5.4",
-        "beberlei/assert": "~2.0",
-        "simple-bus/message-bus": "~1.0@dev",
-        "simple-bus/event-bus": "~2.0@dev"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "suggest": {
-        "simple-bus/doctrine-orm-bridge": "Bridge for using command buses and event buses with Doctrine ORM",
-        "simple-bus/symfony-bridge": "Bridge for using command buses and event buses with Symfony"
-    },
-    "autoload": {
-        "psr-4" : { "SimpleBus\\CommandEventBridge\\" : "src" }
-    },
     "extra": {
         "branch-alias": {
             "dev-master": "2.0-dev"
